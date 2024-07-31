@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Notes</title>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+
+    <header>
+        <h1>Post-it</h1>
+    </header>
+
+    <div class="container-notes"></div>
+        
+    <div class="add-button">+</div>
+
+    <script src="jquery-3.7.1.min.js"></script>
+
+    <script type="text/javascript">
+
+        $(function(){
+            $(".add-button").click(function(){                       
+                var el = '<div class="note-single"><textarea placeholder="Anote aqui..."></textarea></div>'; 
+                $(".container-notes").append(el);
+
+                var textArea = $('.note-single').last().find('textarea');
+
+                var date = new Date();
+                var hour = date.getHours();
+                var minute = date.getMinutes();
+
+                var time = hour+":"+minute;
+
+                textArea.html("Sua nota às: "+time);
+            });
+        });
+        
+    </script>
+
+</body>
+
+</html>
